@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>learning rubiks cube</title>
+    <style>
+        #act {
+            height: 250px;
+            overflow-y: scroll;
+            background-color: #81D4FA;
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 4px;
+            padding: 8px;
+            background: #81D4FA;
+            box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, .5);
+        }
+
+        .btn-inactive {
+            background: #999999;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"
+        integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./OrbitControls.js"></script>
+    <script src="./app.js"></script>
+</head>
+
+<body>
+    <div style="display: flex;">
+        <canvas id="rubiks"></canvas>
+        <div id="act"></div>
+    </div>
+    <div>
+        <a href="#" id="set" class="btn">セット完了</a>
+        <a href="#" id="reset-camera">視点をリセット</a>
+        <a href="#" id="reset-camera-bottom">視点を下から</a>
+        <a href="#" id="reset-camera-reverse">視点を反対側から</a>
+    </div>
+    <hr>
+    <div>
+        青いボタンを順番に押せば全部そろいます
+    </div>
+    <div>
+        <a href="#" id="action-yellow-to-top" class="btn">全体方向</a>
+        <a href="#" id="action-white-blue" class="btn">白青</a>
+        <a href="#" id="action-white-red" class="btn">白赤</a>
+        <a href="#" id="action-white-green" class="btn">白緑</a>
+        <a href="#" id="action-white-orange" class="btn">白橙</a>
+    </div>
+    <div>
+        <a href="#" id="action-white-blue-red" class="btn">白青赤</a>
+        <a href="#" id="action-white-red-green" class="btn">白赤緑</a>
+        <a href="#" id="action-white-green-orange" class="btn">白緑橙</a>
+        <a href="#" id="action-white-orange-blue" class="btn">白橙青</a>
+    </div>
+    <div>
+        <a href="#" id="action-blue-red" class="btn">青赤</a>
+        <a href="#" id="action-red-green" class="btn">赤緑</a>
+        <a href="#" id="action-green-orange" class="btn">緑橙</a>
+        <a href="#" id="action-orange-blue" class="btn">橙青</a>
+    </div>
+    <div>
+        <a href="#" id="action-yellow-edge-rot" class="btn">黄エッジ方向</a>
+        <a href="#" id="action-yellow-corner-rot" class="btn">黄コーナー方向</a>
+        <a href="#" id="action-yellow-corner-pos" class="btn">黄コーナー位置</a>
+        <a href="#" id="action-yellow-edge-pos" class="btn">黄エッジ位置</a>
+    </div>
+    <!-- <hr>
+    <div>
+        <a href="#" id="action-shuffle" class="btn">シャッフル</a>
+    </div> -->
+
+    <hr>
+    <div>
+        手動で揃えたい強者向け
+    </div>
+    <div>
+        <a href="#" id="action-r1" class="btn">R</a>
+        <a href="#" id="action-r3" class="btn">R'</a>
+        <a href="#" id="action-l1" class="btn">L</a>
+        <a href="#" id="action-l3" class="btn">L'</a>
+        <a href="#" id="action-u1" class="btn">U</a>
+        <a href="#" id="action-u3" class="btn">U'</a>
+        <a href="#" id="action-f1" class="btn">F</a>
+        <a href="#" id="action-f3" class="btn">F'</a>
+    </div>
+    <div>
+        <a href="#" id="action-d1" class="btn">D</a>
+        <a href="#" id="action-d3" class="btn">D'</a>
+        <a href="#" id="action-b1" class="btn">B</a>
+        <a href="#" id="action-b3" class="btn">B'</a>
+        <a href="#" id="action-m1" class="btn">M</a>
+        <a href="#" id="action-m3" class="btn">M'</a>
+    </div>
+    <div>
+        <a href="#" id="action-x1" class="btn">X</a>
+        <a href="#" id="action-x3" class="btn">X'</a>
+        <a href="#" id="action-y1" class="btn">Y</a>
+        <a href="#" id="action-y3" class="btn">Y'</a>
+        <a href="#" id="action-z1" class="btn">Z</a>
+        <a href="#" id="action-z3" class="btn">Z'</a>
+    </div>
+</body>
+
+</html>
